@@ -16,7 +16,7 @@ sed -i "/batch.enable=/ s/=.*/=${BATCH_ENABLE}/" /usr/local/tomcat/webapps/ROOT/
 sed -i "/batch.server.ip=/ s/=.*/=${BATCH_SERVER_IP}/" /usr/local/tomcat/webapps/ROOT/WEB-INF/classes/batch.properties
 sed -i "/batch.flink.server=/ s/=.*/=${BATCH_FLINK_SERVER}/" /usr/local/tomcat/webapps/ROOT/WEB-INF/classes/batch.properties
 
-sed -i "/level value=/ s/=.*/=\"${DEBUG_LEVEL}\"\/>/g" /usr/local/tomcat/webapps/ROOT/WEB-INF/classes/log4j.xml
+sed -i "/level value=/ s/=.*/=\"${DEBUG_LEVEL}\"\/>/g" /usr/local/tomcat/webapps/ROOT/WEB-INF/classes/profiles/${SPRING_PROFILES}/log4j.xml
 
 WEB_INF_CLASSES_DIR=/usr/local/tomcat/webapps/ROOT/WEB-INF/classes
 APPLICATION_CONTEXT_WEB_FILE=${WEB_INF_CLASSES_DIR}/applicationContext-web.xml
