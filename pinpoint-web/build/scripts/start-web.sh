@@ -22,6 +22,12 @@ WEB_INF_CLASSES_DIR=/usr/local/tomcat/webapps/ROOT/WEB-INF/classes
 APPLICATION_CONTEXT_WEB_FILE=${WEB_INF_CLASSES_DIR}/applicationContext-web.xml
 APPLICATION_CONTEXT_MAIL_FILE=${WEB_INF_CLASSES_DIR}/applicationContext-mail.xml
 
+
+# Workarounds
+sed -i "/hbase.client.host=/ s/=.*/=${HBASE_HOST}/" /usr/local/tomcat/webapps/ROOT/WEB-INF/classes/profiles/${SPRING_PROFILES}/hbase-env.properties
+sed -i "/hbase.client.port=/ s/=.*/=${HBASE_PORT}/" /usr/local/tomcat/webapps/ROOT/WEB-INF/classes/profiles/${SPRING_PROFILES}/hbase-env.properties
+sed -i "/pinpoint.zookeeper.address=/ s/=.*/=${CLUSTER_ZOOKEEPER_ADDRESS}/" /usr/local/tomcat/webapps/ROOT/WEB-INF/classes/profiles/${SPRING_PROFILES}/pinpoint-web-env.properties
+
 echo -e "
 jdbc.driverClassName=${JDBC_DRIVER:-com.mysql.jdbc.Driver}
 jdbc.url=${JDBC_URL:-jdbc:mysql://localhost:13306/pinpoint?characterEncoding=UTF-8}
